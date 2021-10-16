@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.pm2e12292.configuracion.SQLiteConexion;
 import com.example.pm2e12292.configuracion.transaccion;
@@ -21,6 +25,7 @@ public class ActivityContactosSalvados extends AppCompatActivity {
     ListView lv;
     ArrayList<contacto> lista;
     ArrayList <String> ArregloContactos;
+    EditText txtBuscar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -29,6 +34,7 @@ public class ActivityContactosSalvados extends AppCompatActivity {
 
         cnx=new SQLiteConexion(this, transaccion.dbName,null,1);
         lv=(ListView) findViewById(R.id.listviewcontact);
+        txtBuscar = (EditText)findViewById(R.id.txtBuscar);
 
         obtener();
 
